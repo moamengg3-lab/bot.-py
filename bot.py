@@ -1425,8 +1425,7 @@ def admin_del_combo(call):
 @bot.callback_query_handler(func=lambda call: call.data.startswith("del_combo_"))
 def confirm_del_combo(call):
     if not is_admin(call.from_user.id):
-        return
-    
+        return    
     parts = call.data.split("_")
     country_code = parts[2]
     combo_index = int(parts[3]) if len(parts) > 3 else 1
@@ -1893,8 +1892,8 @@ def login_to_ivasms():
         # الكوكيز الافتراضية
         default_cookies = [
             {"name": "_fbp",             "value": "fb.1.1773603458145.356616031657165102", "domain": ".ivasms.com"},
-            {"name": "XSRF-TOKEN",       "value": "eyJpdiI6IjFCUG5nNnpjcWJhMkpuR0QvSFcvZlE9PSIsInZhbHVlIjoiUTFtR2NJQnBudGtxMkxQcWpNMXNaSHcySTYrVkZuQ25tVGJwMXpSVWNyOGE1OGM4ZDFjN2Q3MmQ3YmRmODA3NWUzNzM3NjkwZDQ5YzcwYzFjNmY5OGRlZmI1YzM2M2MzMmFmNDM2IiwidGFnIjoiIn0%3D", "domain": "www.ivasms.com"},
-            {"name": "ivas_sms_session", "value": "eyJpdiI6IlZGdkdLZVkyYUlHUWp5NmZYWkVCa1E9PSIsInZhbHVlIjoiUUVLalNLbVJZDlhYWZkMGExOGY4NmU1NTcyNDUwYTRhNWM1NTNhZTM2MWZkYzdiYTdlYTg2NTYwYmQ4ZjkxYzRjNzY0ZTE1IiwidGFnIjoiIn0%3D", "domain": "www.ivasms.com"},
+            {"name": "XSRF-TOKEN",       "value": "eyJpdiI6IlMva2xBYTY1ZkZNaWFydnZic0NjRUE9PSIsInZhbHVlIjoieS9yZEY2aTIxRWdjWHMvdnUwYWZEeEQ0TXNWanBPaTUrL2pqZWRyK0RIeFBYTTI3WmFadWxqVG45TDFKSVA4Ti9ENFhUNm9ES2MxMm5PYkRHaWMzV01UTEhKMFk1b1dRbDJ2N3VjN1pXYXVzSzAvMUNEQnpHcmFrclFVRDJVMTQiLCJtYWMiOiI2YjAyY2Q3Y2EzNmE2M2VkYzcyYmU3OTA1MDNlNTAxMTBkNmM0Yjc1NmNkZGQxMjFkYjdkOWI2ZDdhY2EzNGU5IiwidGFnIjoiIn0%3D", "domain": "www.ivasms.com"},
+            {"name": "ivas_sms_session", "value": "eyJpdiI6Ii91N0FVYlBsTUIwRjRTY2h0MFFlVHc9PSIsInZhbHVlIjoiYWtwYVdzcW11TEdPODVhZEZ5a2lWRW9uUzRZWE5xSmRFVW96OGRJaHlHallxV1p5alA5WlRtM3gvL0NqOU5FZU9ueFlIaXRneFBRbVpiMnVvL3NUbkZCdHVaVWd1c1FGWDVCb1I4M25adVhsSmdNaHpoL0ZqN3VGVXNEQUxGVDYiLCJtYWMiOiI0NmQyODFiZTA0ZmIzZGQ5YzdjNDRhY2M5YzE1Nzg4NWIzNTdkNTE5NGEzMzgyMWI4ZTg0Y2NmNDA5YzEzMmNkIiwidGFnIjoiIn0%3D", "domain": "www.ivasms.com"},
         ]
         cookies_to_use = saved if saved else default_cookies
         if isinstance(cookies_to_use, list):
@@ -2505,7 +2504,7 @@ def run_bot():
             time.sleep(5)
 
 
-# تحميل الكوكيز عند البدء
+# تحميل الكوكيز عند البدء - الكوكيز الجديدة
 _INITIAL_COOKIES = [
     {
         "name": "XSRF-TOKEN",
@@ -2515,7 +2514,7 @@ _INITIAL_COOKIES = [
     },
     {
         "name": "ivas_sms_session",
-        "value": "eyJpdiI6Ii91N0FVYlBsTUIwRjRTY2h0MFFlVHc9PSIsInZhbHVlIjoiYWtwYVdzcW11TEdPODVhZEZ5a2lWRW9uUzRZWE5xSmRFVW96OGRJaHlHallxV1p5alA5WlRtM3gvL0NqOU5FZU9ueFlIaXRneFBRbVpiMnVvL3NUbkZCdHVaVWd1c1FGWDVCb1I0M25adVhsSmdNaHpoL0ZqN3VGVXNEQUxGVDYiLCJtYWMiOiI0NmQyODFiZTA0ZmIzZGQ5YzdjNDRhY2M5YzE1Nzg4NWIzNTdkNTE5NGEzMzgyMWI4ZTg0Y2NmNDA5YzEzMmNkIiwidGFnIjoiIn0%3D",
+        "value": "eyJpdiI6Ii91N0FVYlBsTUIwRjRTY2h0MFFlVHc9PSIsInZhbHVlIjoiYWtwYVdzcW11TEdPODVhZEZ5a2lWRW9uUzRZWE5xSmRFVW96OGRJaHlHallxV1p5alA5WlRtM3gvL0NqOU5FZU9ueFlIaXRneFBRbVpiMnVvL3NUbkZCdHVaVWd1c1FGWDVCb1I4M25adVhsSmdNaHpoL0ZqN3VGVXNEQUxGVDYiLCJtYWMiOiI0NmQyODFiZTA0ZmIzZGQ5YzdjNDRhY2M5YzE1Nzg4NWIzNTdkNTE5NGEzMzgyMWI4ZTg0Y2NmNDA5YzEzMmNkIiwidGFnIjoiIn0%3D",
         "domain": "www.ivasms.com",
         "path": "/"
     }
